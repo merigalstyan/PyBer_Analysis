@@ -63,4 +63,22 @@ Taking all these steps finally allows us to see the differences between the tota
 
 Even though individual drivers earned more in suburban and rural cities than drivers in urban cities, we can see from the graph that urban city type has the highest amount of fares weekly between the months of January and April in 2019. 
 
+## Summary
+
+Let's address the differences in the results. There are several disparities between city types and summarizing them could be of help:
+
+* The number of total rides is highest in urban cities (1625), less in suburban cities (625) and least in rural cities(125).
+* Average fare per ride is very high in rural area ($34.62), less in suburban($30.97) and urban($24.52) cities.
+* Average fare per driver is different accordingly: $55.48, $39.50, $16.57
+* Despite average fares being higher in rural and suburban areas, based on the ride number urban cities have the highest profit overtime.
+
+Although these disparities can depend on many internal and external factors, some recommendations are:
+
+**1.** Researching rural and suburban cities to understand demand. There is a need for more drivers in these cities. The company could recruit more drivers only if there is high demand. More research could help understand the service demand and fix the supply.
+
+**2.** The fares are high in rural and suburban cities. Even though this can depend on the lack of drivers and lack of demand, there is a need of extensive research to understand whether or not the high fares could cause lack of demand and thus, lack of drivers. This matter is intertwined and research is required as mentioned above.
+
+**3.** In this analysis we're looking at a couple of months in 2019. This can damage our analysis. The ride_share data is huge and only looking at this short timeframe could jeopardize the analysis. Maybe an additional analysis could be conducted using longer periods than Jan - Apr of 2019.
+
+
 
