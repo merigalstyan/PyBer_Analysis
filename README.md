@@ -15,7 +15,9 @@ In order to effectively explain the findings of this analysis it's essential to 
 After importing **matplotlib** and **pandas**, the ***read_csv*** reads the files and ***pd.merge*** combines the datasets.
 
 
-## Part 1: The Averages
+## Part 1
+
+### The Averages
 
 Perhapes the first part of this analysis is the most essential one. This section calculates the average fare per ride and average fare per driver for each city type. This information will show us the different fares between the city types. We first need to understand how many total rides was completed in each city type, how many drivers each city type has and what are the fares for each city type by using the **groupby()** and **count()** functions:
 
@@ -36,10 +38,29 @@ Let's look at the results:
 
 Even though urban cities completed a lot more rides than suburban and rural cities, they have considerably higher number of drivers and thus the average fares are higher in rural and suburban areas. Using the ***total fares per city type / total rides per city type*** we can see the average fare per ride in all areas.In addition, each driver earnes more in rural cities than suburban and urban cities. The average fare per driver is calculated by ***total fares per city type / total number of drivers per city type***. The results are as follows:
 
-<img width="559" alt="Screen Shot 2022-09-27 at 4 57 11 PM" src="https://user-images.githubusercontent.com/111609994/192657833-737cc448-c8fe-4f8b-add5-2eb6480ea383.png">
+<img width="549" alt="Screen Shot 2022-09-27 at 5 05 58 PM" src="https://user-images.githubusercontent.com/111609994/192664843-86f061a5-583e-4d76-a95c-31ed49523723.png">
 
+## Part 2
 
+### Total Weekly Fares by City Type
 
+The second part of the analysis includes finding the total weekly fares by city type and plotting it. This part requires to look at the sum of fares based not only on type, but on date as well. To find this we need to group our original merged data by ***date*** and ***type*** and compute the sum of ***fares***. 
+**the sum of the fares for each date = df.groupby(["date","type"]).sum()["fare"].**
 
+To simplify our data and have a better visual, we use the **pd.pivot_table()** function and since we want to look at the data from 2019, we use ***loc*** to filter the dates from ***2019-01-01*** to ***2019-04-29***. Let's have a look at the code:
+
+<img width="902" alt="Screen Shot 2022-09-27 at 6 21 14 PM" src="https://user-images.githubusercontent.com/111609994/192665879-37bcc27a-a274-4573-97e9-8cd7d5d60d37.png">
+
+**NOTE**: Before looking at the result, it's important to make sure that the datatype is ***DatetimeIndex*** in order to resample the data later.
+
+To change the datatype we simply use **df.index = pd.to_datetime(df.index)**. This method converts all the NaN values in the pivot table. This will allow us to finally plot our data for weekly fares. 
+
+<img width="424" alt="Screen Shot 2022-09-27 at 6 26 42 PM" src="https://user-images.githubusercontent.com/111609994/192666493-e91c17ef-6c33-4321-9fab-c3ef88f3fd9c.png">
+
+Taking all these steps finally allows us to see the differences between the total fares by city types. 
+
+![PyBer_fare_summary](https://user-images.githubusercontent.com/111609994/192666574-b3b31cef-3590-4203-8af4-91feba4e6132.png)
+
+Even though individual drivers earned more in suburban and rural cities than drivers in urban cities, we can see from the graph that urban city type has the highest amount of fares weekly between the months of January and April in 2019. 
 
 
